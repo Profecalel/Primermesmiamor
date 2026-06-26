@@ -1,0 +1,1487 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nuestra Historia 🤍</title>
+    <style>
+        :root {
+            --rosa-suave: #ffb7b2;
+            --lila-pastel: #e8dbfc;
+            --morado-bonito: #b39ddb;
+            --plata-brillante: #e0e0e0;
+            --plata-borde: #cbd5e1;
+            --texto-oscuro: #4a3b54;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(to bottom, #fcf6ff, #f5efff);
+            color: var(--texto-oscuro);
+            margin: 0; padding: 0;
+        }
+
+        header {
+            text-align: center;
+            padding: 70px 20px;
+            background: linear-gradient(135deg, var(--rosa-suave), #ffccd5, var(--lila-pastel), var(--morado-bonito));
+            background-size: 300% 300%;
+            animation: gradienteMovimiento 10s ease infinite;
+            color: white;
+            border-bottom: 3px solid var(--plata-brillante);
+            box-shadow: 0 4px 20px rgba(179, 157, 219, 0.2);
+        }
+
+        @keyframes gradienteMovimiento {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        header h1 { margin: 0; font-size: 2.8rem; letter-spacing: 1px; text-shadow: 2px 2px 8px rgba(0,0,0,0.15); }
+        header p { font-size: 1.2rem; opacity: 0.95; margin-top: 10px; font-weight: 300; }
+
+        .viaje-contenedor {
+            position: relative;
+            max-width: 850px;
+            margin: 60px auto;
+            padding: 0 20px;
+        }
+
+        .viaje-contenedor::after {
+            content: '';
+            position: absolute;
+            width: 4px;
+            background: linear-gradient(to bottom, var(--rosa-suave), var(--morado-bonito), var(--lila-pastel));
+            top: 0; bottom: 0; left: 50%;
+            margin-left: -2px;
+            border-radius: 2px;
+        }
+
+        .dia-bloque {
+            padding: 20px 40px;
+            position: relative;
+            background-color: inherit;
+            width: 50%;
+            box-sizing: border-box;
+        }
+
+        .dia-bloque::after {
+            content: '✨';
+            position: absolute;
+            width: 30px; height: 30px;
+            right: -15px; top: 35px;
+            background: white;
+            border: 2px solid var(--morado-bonito);
+            border-radius: 50%;
+            z-index: 1;
+            font-size: 1rem;
+            text-align: center;
+            line-height: 30px;
+            box-shadow: 0 0 10px rgba(179, 157, 219, 0.5);
+        }
+
+        .izquierda { left: 0; text-align: right; }
+        .derecha { left: 50%; text-align: left; }
+        .derecha::after { left: -15px; }
+
+        .contenido {
+            padding: 25px;
+            background: rgba(255, 255, 255, 0.9);
+            position: relative;
+            border-radius: 20px;
+            border: 1px solid var(--plata-borde);
+            box-shadow: 0 10px 25px rgba(160, 160, 180, 0.15);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .contenido:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(179, 157, 219, 0.3);
+            border-color: var(--morado-bonito);
+        }
+
+        .fecha { font-weight: 700; color: #9c7ec7; font-size: 1.1rem; margin-bottom: 8px; display: block; text-transform: uppercase; letter-spacing: 1px; }
+        .contenido h3 { margin: 5px 0 12px 0; color: #5e4b70; font-size: 1.4rem; }
+        .contenido p { line-height: 1.7; margin: 0 0 15px 0; font-size: 1rem; color: #55495c; }
+
+        .botones-grupo { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 5px; }
+        .izquierda .botones-grupo { justify-content: flex-end; }
+        .derecha .botones-grupo { justify-content: flex-start; }
+
+        .btn-recuerdo {
+            background: linear-gradient(135deg, var(--morado-bonito), #be93e4);
+            color: white;
+            border: 1px solid var(--plata-brillante);
+            padding: 10px 22px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 0.95rem;
+            font-weight: 600;
+            box-shadow: 0 4px 12px rgba(179, 157, 219, 0.4);
+            transition: all 0.3s ease;
+        }
+        .btn-recuerdo:hover {
+            background: linear-gradient(135deg, #be93e4, var(--rosa-suave));
+            box-shadow: 0 6px 15px rgba(255, 183, 178, 0.6);
+            transform: scale(1.05);
+        }
+
+        .btn-imagen {
+            background: linear-gradient(135deg, #f9a8d4, #fb7185);
+            color: white;
+            border: 1px solid #fecdd3;
+            padding: 10px 22px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 0.95rem;
+            font-weight: 600;
+            box-shadow: 0 4px 12px rgba(251, 113, 133, 0.3);
+            transition: all 0.3s ease;
+        }
+        .btn-imagen:hover {
+            background: linear-gradient(135deg, #fb7185, #f9a8d4);
+            box-shadow: 0 6px 15px rgba(249, 168, 212, 0.6);
+            transform: scale(1.05);
+        }
+
+        .galeria-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 8px;
+            margin-top: 14px;
+        }
+
+        .galeria-thumb {
+            width: 100%;
+            aspect-ratio: 1;
+            object-fit: cover;
+            border-radius: 10px;
+            cursor: pointer;
+            border: 2px solid transparent;
+            transition: all 0.25s ease;
+            box-shadow: 0 3px 8px rgba(179,157,219,0.2);
+        }
+
+        .galeria-thumb:hover {
+            border-color: var(--morado-bonito);
+            transform: scale(1.05);
+            box-shadow: 0 6px 16px rgba(179,157,219,0.4);
+        }
+
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: rgba(20, 14, 28, 0.92);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+            backdrop-filter: blur(8px);
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        .modal-overlay.activo { display: flex; }
+
+        .modal-caja {
+            background: white;
+            border-radius: 26px;
+            padding: 30px 30px 26px;
+            width: fit-content;
+            height: fit-content;
+            min-width: min(360px, 94vw);
+            max-width: min(1100px, 94vw);
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+            box-shadow: 0 30px 80px rgba(0,0,0,0.5);
+            animation: zoomIn 0.32s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: 2px solid var(--lila-pastel);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        @keyframes zoomIn { from { transform: scale(0.75); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+
+        .modal-cerrar {
+            position: absolute;
+            top: 16px; right: 18px;
+            background: var(--lila-pastel);
+            border: none;
+            color: #5e4b70;
+            font-size: 1.4rem;
+            width: 38px; height: 38px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            transition: all 0.2s ease;
+            flex-shrink: 0;
+            z-index: 5;
+        }
+        .modal-cerrar:hover { background: var(--morado-bonito); color: white; transform: rotate(90deg); }
+
+        .modal-contador {
+            font-size: 0.85rem;
+            color: #9c7ec7;
+            font-weight: 700;
+            letter-spacing: 1px;
+            margin-bottom: 14px;
+            text-transform: uppercase;
+            flex-shrink: 0;
+        }
+
+        .modal-img-wrap {
+            position: relative;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 14px;
+        }
+
+        .modal-img {
+            display: block;
+            max-width: min(900px, 80vw);
+            max-height: 70vh;
+            width: auto;
+            height: auto;
+            border-radius: 16px;
+            object-fit: contain;
+            box-shadow: 0 10px 35px rgba(179,157,219,0.35);
+            flex: 1;
+        }
+
+        .modal-flecha {
+            background: rgba(179,157,219,0.25);
+            border: none;
+            color: #5e4b70;
+            font-size: 1.8rem;
+            width: 48px; height: 48px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+            flex-shrink: 0;
+        }
+        .modal-flecha:hover { background: var(--morado-bonito); color: white; transform: scale(1.08); }
+        .modal-flecha:disabled { opacity: 0.2; cursor: default; }
+
+        .modal-texto-foto {
+            margin-top: 18px;
+            width: 100%;
+            background: linear-gradient(135deg, rgba(232,219,252,0.35), rgba(255,183,178,0.18));
+            border-radius: 14px;
+            padding: 16px 20px;
+            font-size: 1.05rem;
+            color: #55495c;
+            line-height: 1.6;
+            text-align: center;
+            border-left: 4px solid var(--morado-bonito);
+            box-sizing: border-box;
+            flex-shrink: 0;
+        }
+
+        .modal-thumbs {
+            display: flex;
+            gap: 8px;
+            margin-top: 16px;
+            flex-wrap: wrap;
+            justify-content: center;
+            width: 100%;
+            flex-shrink: 0;
+        }
+
+        .modal-thumb-mini {
+            width: 64px; height: 64px;
+            object-fit: cover;
+            border-radius: 10px;
+            cursor: pointer;
+            border: 2px solid transparent;
+            transition: all 0.2s ease;
+            opacity: 0.6;
+        }
+        .modal-thumb-mini:hover { opacity: 1; border-color: var(--morado-bonito); transform: scale(1.06); }
+        .modal-thumb-mini.activa { border-color: var(--morado-bonito); opacity: 1; box-shadow: 0 0 10px rgba(179,157,219,0.6); }
+
+        .modal-img-error {
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 30px;
+            color: #9c7ec7;
+            text-align: center;
+            width: 100%;
+            height: 100%;
+        }
+        .modal-img-error span { font-size: 3.5rem; margin-bottom: 10px; }
+        .modal-img-error p { font-size: 0.95rem; color: #aaa; margin: 0; }
+
+        .modal-overlay-simple {
+            display: none;
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: rgba(20, 14, 28, 0.92);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+            backdrop-filter: blur(8px);
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        .modal-overlay-simple.activo { display: flex; }
+
+        .modal-caja-simple {
+            background: white;
+            border-radius: 26px;
+            padding: 30px 30px 26px;
+            width: fit-content;
+            height: fit-content;
+            min-width: min(360px, 94vw);
+            max-width: min(1100px, 94vw);
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+            box-shadow: 0 30px 80px rgba(0,0,0,0.5);
+            animation: zoomIn 0.32s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: 2px solid var(--lila-pastel);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .modal-img-wrap-simple {
+            position: relative;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-img-simple {
+            display: block;
+            max-width: min(900px, 80vw);
+            max-height: 70vh;
+            width: auto;
+            height: auto;
+            border-radius: 16px;
+            object-fit: contain;
+            box-shadow: 0 10px 35px rgba(179,157,219,0.35);
+        }
+
+        .modal-texto-foto-simple {
+            margin-top: 18px;
+            width: 100%;
+            flex-shrink: 0;
+            background: linear-gradient(135deg, rgba(232,219,252,0.35), rgba(255,183,178,0.18));
+            border-radius: 14px;
+            padding: 16px 20px;
+            font-size: 1.05rem;
+            color: #55495c;
+            line-height: 1.6;
+            text-align: center;
+            border-left: 4px solid var(--morado-bonito);
+            box-sizing: border-box;
+        }
+
+        .prologo-contenedor {
+            max-width: 700px;
+            margin: 60px auto 0 auto;
+            padding: 0 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .prologo-etiqueta {
+            text-align: center;
+            font-size: 0.85rem;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: #b39ddb;
+            margin-bottom: -10px;
+        }
+
+        .prologo-tarjeta {
+            width: 100%;
+            box-sizing: border-box;
+            background: linear-gradient(135deg, rgba(255,255,255,0.97), rgba(232,219,252,0.3));
+            border: 2px solid var(--morado-bonito);
+            border-radius: 24px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 12px 35px rgba(179, 157, 219, 0.25);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .prologo-tarjeta::before {
+            content: '';
+            position: absolute;
+            top: -2px; left: -2px; right: -2px; bottom: -2px;
+            border-radius: 26px;
+            background: linear-gradient(135deg, var(--rosa-suave), var(--morado-bonito), var(--lila-pastel));
+            z-index: -1;
+            opacity: 0.5;
+        }
+
+        .prologo-tarjeta:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 45px rgba(179, 157, 219, 0.4);
+        }
+
+        .prologo-icono { font-size: 2.5rem; margin-bottom: 10px; display: block; }
+        .prologo-titulo-tag { font-weight: 700; color: #9c7ec7; font-size: 0.95rem; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 8px; display: block; }
+        .prologo-tarjeta h3 { margin: 0 0 12px 0; color: #5e4b70; font-size: 1.5rem; }
+        .prologo-tarjeta p { line-height: 1.8; color: #55495c; font-size: 1rem; margin: 0 0 20px 0; }
+
+        .prologo-separador {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            width: 100%;
+            max-width: 400px;
+            color: #b39ddb;
+            font-size: 1.3rem;
+        }
+        .prologo-separador::before, .prologo-separador::after {
+            content: '';
+            flex: 1;
+            height: 2px;
+            background: linear-gradient(to right, transparent, var(--morado-bonito), transparent);
+        }
+
+        .prologo-flecha {
+            text-align: center;
+            font-size: 2rem;
+            color: var(--morado-bonito);
+            animation: bajar 1.5s ease-in-out infinite;
+        }
+        @keyframes bajar { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(8px); } }
+
+        footer {
+            text-align: center;
+            padding: 50px 20px;
+            background: linear-gradient(to top, #3d3145, #4a3b54);
+            color: var(--lila-pastel);
+            margin-top: 80px;
+            border-top: 4px solid var(--morado-bonito);
+        }
+        footer p { margin: 0; font-size: 1.1rem; letter-spacing: 1px; }
+
+        @media screen and (max-width: 600px) {
+            .viaje-contenedor::after { left: 31px; }
+            .dia-bloque { width: 100%; padding-left: 70px; padding-right: 20px; text-align: left !important; }
+            .dia-bloque::after { left: 16px; right: auto; }
+            .derecha { left: 0%; }
+            .izquierda .botones-grupo, .derecha .botones-grupo { justify-content: flex-start; }
+            .galeria-grid { grid-template-columns: repeat(3, 1fr); }
+
+            .modal-caja {
+                max-height: 95vh;
+                min-width: min(300px, 92vw);
+                padding: 20px 16px 18px;
+                border-radius: 18px;
+            }
+            .modal-img { max-height: 60vh; max-width: 88vw; }
+            .modal-flecha { width: 40px; height: 40px; font-size: 1.5rem; }
+            .modal-thumb-mini { width: 50px; height: 50px; }
+
+            .modal-caja-simple {
+                max-height: 95vh;
+                min-width: min(300px, 92vw);
+                padding: 20px 16px 18px;
+                border-radius: 18px;
+            }
+            .modal-img-simple { max-height: 60vh; max-width: 88vw; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Nuestra Historia 🦦🌺</h1>
+    <p>Feliz primer mes, miamor</p>
+</header>
+
+<div class="prologo-contenedor">
+
+    <p class="prologo-etiqueta"> Antes de todo... </p>
+
+    <div class="prologo-tarjeta">
+        <span class="prologo-icono">💬</span>
+        <span class="prologo-titulo-tag">El inicio de todo</span>
+        <h3>Cuando nos escribimos por primera vez</h3>
+        <p>Este día lo recuerdo muy bien, porque este fue el día donde conocí a la mujer de mis sueños, donde intercambiamos palabras y nos interesamos mutuamente.</p>
+        <div class="botones-grupo" style="justify-content:center;">
+            <button class="btn-recuerdo" onclick="alert('Mi yo del pasado no tenía ni idea de que sentiría tan fuerte el amor contigo, niña preciosa.💜')">Ver recuerdo</button>
+            <button class="btn-imagen" onclick="abrirFotoUnica('PRIMERDIA.jpeg', '💬 El día que ya nuestro destiny se había decidido...')">📷 Ver foto</button>
+        </div>
+    </div>
+
+    <div class="prologo-separador">💜</div>
+
+    <div class="prologo-tarjeta">
+        <span class="prologo-icono">💌</span>
+        <span class="prologo-titulo-tag">El momento que lo cambió todo</span>
+        <h3>Cuando te pedí que fueras mi novia</h3>
+        <p>Ese día mi corazón latía a mil por hora, lleno de miedo por la respuesta que me darías. Aun así, me armé de valor para preguntarte: '¿quieres ser mi novia?'. En mi mente quedó grabado para siempre tu 'sí, miamor'; en ese instante mi corazón exploded y sentí una ola enorme de felicidad.</p>
+        <div class="botones-grupo" style="justify-content:center;">
+            <button class="btn-recuerdo" onclick="alert('🌸 En mi mente quedo grabado el *sí miamor*')">Ver recuerdo</button>
+            <button class="btn-imagen" onclick="abrirFotoUnica('25DIAELSI.jpeg', 'EL DÍA QUE TENGO GRABADO EN LA MEMORIA. Dijiste que sí y cambió todo.')">📷 Ver foto</button>
+        </div>
+    </div>
+
+    <div class="prologo-flecha">↓</div>
+    <p class="prologo-etiqueta">Y así comenzaron los 30 días...</p>
+</div>
+
+<div class="viaje-contenedor">
+
+    <div class="dia-bloque izquierda">
+        <div class="contenido">
+            <span class="fecha">26 de Mayo — Día 01</span>
+            <h3>Primer día de novios 🌸</h3>
+            <p>En ese primer día estaba más contento de lo que te imaginas. No podía creer que ya fueras mi novia, estaba completamente asombrado de tenerte a ti, niña linda, como mi pareja.</p>
+            <div class="galeria-grid">
+                <img class="galeria-thumb" src="HABALNDOEL PRIMERDIADENOVIOS.jpeg" alt="foto 1" onclick="abrirGaleria(galeria01, 0)">
+                <img class="galeria-thumb" src="FOTITODEDONDE ESTABA.jpeg" alt="foto 2" onclick="abrirGaleria(galeria01, 1)">
+                <img class="galeria-thumb" src="26dia1fotodemihermosanovia.jpeg" alt="foto 3" onclick="abrirGaleria(galeria01, 2)">
+            </div>
+            <div class="botones-grupo">
+                <button class="btn-recuerdo" onclick="alert('💜 Te amo miamor')">Ver secreto</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="dia-bloque derecha">
+        <div class="contenido">
+            <span class="fecha">27 de Mayo — Día 02</span>
+            <h3>Cada palabra tuya, un regalo</h3>
+            <p>Escucharte se convirtió en mi parte favorita del día miamor. Tu voz tiene algo que calma todo a mi alrededor y me hace querer que el tiempo se detenga.</p>
+            <div class="galeria-grid">
+                <img class="galeria-thumb" src="27dia2dibujo.jpeg" alt="foto 1" onclick="abrirGaleria(galeria02, 0)">
+                <img class="galeria-thumb" src="27dia2Llamadadenovios.jpeg" alt="foto 2" onclick="abrirGaleria(galeria02, 1)">
+                <img class="galeria-thumb" src="27dia2tiktok.jpeg" alt="foto 3" onclick="abrirGaleria(galeria02, 2)">
+                <img class="galeria-thumb" src="27dia2tiktok2parte.jpeg" alt="foto 4" onclick="abrirGaleria(galeria02, 3)">
+                <img class="galeria-thumb" src="27diadosfotofavorita.jpeg" alt="foto 5" onclick="abrirGaleria(galeria02, 4)">
+                <img class="galeria-thumb" src="27DIA2FONDODEPANTALLA.jpeg" alt="foto 6" onclick="abrirGaleria(galeria02, 5)">
+                <img class="galeria-thumb" src="27dia2cancionfav.jpeg" alt="foto 7" onclick="abrirGaleria(galeria02, 6)">
+            </div>
+            <div class="botones-grupo">
+                <button class="btn-recuerdo" onclick="alert('💜 No hay música más hermosa que el sonido de tu voz y la dulzura de tu risa.')">Ver secreto</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="dia-bloque izquierda">
+        <div class="contenido">
+            <span class="fecha">28 de Mayo — Día 03</span>
+            <h3>Me sentí Feliz 🐝</h3>
+            <p>Este día sentí el calor de tus palabras al decirme que te gustaba mucho la playlist, y lo sentí porque la música es una forma de expresar lo que siento por ti.</p>
+            <div class="galeria-grid">
+                <img class="galeria-thumb" src="28dia3FONDODEPANTALLA.jpeg" alt="foto 1" onclick="abrirGaleria(galeria03, 0)">
+                <img class="galeria-thumb" src="28dia3Llamadaconminovia.jpeg" alt="foto 2" onclick="abrirGaleria(galeria03, 1)">
+                <img class="galeria-thumb" src="28dia3playlist para ir a casa.jpeg" alt="foto 3" onclick="abrirGaleria(galeria03, 2)">
+                <img class="galeria-thumb" src="28dia3leencantalaplaylist.jpeg" alt="foto 4" onclick="abrirGaleria(galeria03, 3)">
+            </div>
+            <div class="botones-grupo">
+                <button class="btn-recuerdo" onclick="alert('💜 Tu presencia mejora mi vida.')">Ver secreto</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="dia-bloque derecha">
+        <div class="contenido">
+            <span class="fecha">29 de Mayo — Día 04</span>
+            <h3>Eres increíblemente maravillosa 🌟</h3>
+            <p>No hay nada mejor en el mundo que despertar con tus mensajes miniña, pero poder saber de ti cada día es lo que más me hace feliz.</p>
+            <div class="galeria-grid">
+                <img class="galeria-thumb" src="29dia4desperarconsusmensajes lo mejor.jpeg" alt="foto 1" onclick="abrirGaleria(galeria04, 0)">
+                <img class="galeria-thumb" src="29dia4caminaparaescuicharmusicaonmigo.jpeg" alt="foto 2" onclick="abrirGaleria(galeria04, 1)">
+                <img class="galeria-thumb" src="29dia4juegoviley.jpeg" alt="foto 3" onclick="abrirGaleria(galeria04, 2)">
+                <img class="galeria-thumb" src="29dia4moestarmelosdoles.jpeg" alt="foto 4" onclick="abrirGaleria(galeria04, 3)">
+                <img class="galeria-thumb" src="29dia4nolesabrieron...JAJJAJAJAJJA.jpeg" alt="foto 5" onclick="abrirGaleria(galeria04, 4)">
+            </div>
+            <div class="botones-grupo">
+                <button class="btn-recuerdo" onclick="alert('💜 Nunca dejes de mandarme mensajitos o audios')">Ver secreto</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="dia-bloque izquierda">
+        <div class="contenido">
+            <span class="fecha">30 de Mayo — Día 05</span>
+            <h3>La distancia también habla / Creando conexiones 💌🌙</h3>
+            <p>Este día te extrañe un montón, pero escuchar música y compartir cosas contigo calmó todo. No solo tu presencia, sino tu energía, tu luz, todo lo que eres tú se siente conectado a través de las melodías.</p>
+            <div class="galeria-grid">
+                <img class="galeria-thumb" src="30dia5Comprandosusabdordedulcefav.jpeg" alt="foto 1" onclick="abrirGaleria(galeria05, 0)">
+                <img class="galeria-thumb" src="30dia5escuchamosjuntosunacacionhermosa.jpeg" alt="foto 2" onclick="abrirGaleria(galeria05, 1)">
+                <img class="galeria-thumb" src="30dia5fotodesuabrigo.jpeg" alt="foto 3" onclick="abrirGaleria(galeria05, 2)">
+                <img class="galeria-thumb" src="30dia5mededicounacancion en notas.jpeg" alt="foto 4" onclick="abrirGaleria(galeria05, 3)">
+                <img class="galeria-thumb" src="30dia5viendolabailar.jpeg" alt="foto 5" onclick="abrirGaleria(galeria05, 4)">
+                <img class="galeria-thumb" src="30dia5viendocomoagarraesamepanada.jpeg" alt="foto 6" onclick="abrirGaleria(galeria05, 5)">
+                <img class="galeria-thumb" src="31dia6ESCUCHANDOMUSICAJUNTOS.jpeg" alt="foto 7" onclick="abrirGaleria(galeria05, 6)">
+                <img class="galeria-thumb" src="31dia6escuchandomusicaconminovia.jpeg" alt="foto 8" onclick="abrirGaleria(galeria05, 7)">
+                <img class="galeria-thumb" src="31dia6Cancionquemedediconuevamenteporqueeneldiadosmelodedico.jpeg" alt="foto 9" onclick="abrirGaleria(galeria05, 8)">
+                <img class="galeria-thumb" src="31dia6minoviaconmocasines.jpeg" alt="foto 10" onclick="abrirGaleria(galeria05, 9)">
+            </div>
+            <div class="botones-grupo">
+                <button class="btn-recuerdo" onclick="alert('💜 Adoro crear conexiones contigo y compartir hermosas melodías.')">Ver secreto</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="dia-bloque derecha">
+        <div class="contenido">
+            <span class="fecha">01 de Junio — Día 06</span>
+            <h3>Una hermosa semana se acerca 🌺</h3>
+            <p>Así de bonito se pasa el tiempo cuando estás cerca, compartiendo detalles cotidianos, el cielo que miras y las pequeñas cosas de tu día.</p>
+            <div class="galeria-grid">
+                <img class="galeria-thumb" src="1dia7Cieloazultanbelloqueellamemando.jpeg" alt="foto 1" onclick="abrirGaleria(galeria06, 0)">
+                <img class="galeria-thumb" src="1dia7ayudandoaminoviaconsuclase,primeraclase.jpeg" alt="foto 2" onclick="abrirGaleria(galeria06, 1)">
+                <img class="galeria-thumb" src="1dia7disfrutandodeminovia.jpeg" alt="foto 3" onclick="abrirGaleria(galeria06, 2)">
+                <img class="galeria-thumb" src="1dia7sufrutafavorita.jpeg" alt="foto 4" onclick="abrirGaleria(galeria06, 3)">
+                <img class="galeria-thumb" src="1dia7ayudandoaminovia.jpeg" alt="foto 5" onclick="abrirGaleria(galeria06, 4)">
+                <img class="galeria-thumb" src="1dia7yougurtellaesliteso.jpeg" alt="foto 6" onclick="abrirGaleria(galeria06, 5)">
+            </div>
+            <div class="botones-grupo">
+                <button class="btn-recuerdo" onclick="alert('💜 ¡Me sentí tan feliz al ayudarte en tus cositas!')">Ver secreto</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="dia-bloque izquierda">
+        <div class="contenido">
+            <span class="fecha">02 de Junio — Día 07</span>
+            <h3>Esos dulces de pura felicidad 😊</h3>
+            <p>Despertar sintiéndome amado es la mejor sensación del mundo, compartiendo dulces y risas a través de la pantalla.</p>
+            <div class="galeria-grid">
+                <img class="galeria-thumb" src="2dia8DESPERTECONMENSAJITOS.jpeg" alt="foto 1" onclick="abrirGaleria(galeria07, 0)">
+                <img class="galeria-thumb" src="2dia8MENSAJESDEIGFELICES.jpeg" alt="foto 2" onclick="abrirGaleria(galeria07, 1)">
+                <img class="galeria-thumb" src="2dia8dulcesqueellasecomio.jpeg" alt="foto 3" onclick="abrirGaleria(galeria07, 2)">
+                <img class="galeria-thumb" src="2dia8Dulcequeellamedio7entotal.jpeg" alt="foto 4" onclick="abrirGaleria(galeria07, 3)">
+                <img class="galeria-thumb" src="2dia8escuchandoOPENINGS.jpeg" alt="foto 5" onclick="abrirGaleria(galeria07, 4)">
+            </div>
+            <div class="botones-grupo">
+                <button class="btn-recuerdo" onclick="alert('💜 ¡Amo despertar con tus mensajes miamor!')">Ver secreto</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="dia-bloque derecha">
+        <div class="contenido">
+            <span class="fecha">03 de Junio — Día 08</span>
+            <h3>Conexión e historias juntos 🎹</h3>
+            <p>Sentir y compartir pasiones, música, historias y animes que nos conectan de una manera única y diferente.</p>
+            <div class="galeria-grid">
+                <img class="galeria-thumb" src="3dia9 EMPZAMOS AVER EL ANIME.jpeg" alt="foto 1" onclick="abrirGaleria(galeria08, 0)">
+                <img class="galeria-thumb" src="3dia9seguimosaun.jpeg" alt="foto 2" onclick="abrirGaleria(galeria08, 1)">
+                <img class="galeria-thumb" src="3DIA9 seguimosviendoelanime.jpeg" alt="foto 3" onclick="abrirGaleria(galeria08, 2)">
+                <img class="galeria-thumb" src="3dia9primercap.jpeg" alt="foto 4" onclick="abrirGaleria(galeria08, 3)">
+                <img class="galeria-thumb" src="3dia9vamosdenuevo.jpeg" alt="foto 5" onclick="abrirGaleria(galeria08, 4)">
+            </div>
+            <div class="botones-grupo">
+                <button class="btn-recuerdo" onclick="alert('💜 Me encanta descubrir cosas nuevas a tu lado.')">Ver secreto</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="dia-bloque izquierda">
+        <div class="contenido">
+            <span class="fecha">04 de Junio — Día 09</span>
+            <h3>Amo tenerte de novia y futura esposa 🌷</h3>
+            <p>Cada momento se guarda en mi memoria, donde todos esos momentos los atesoro.</p>
+            <div class="galeria-grid">
+                <img class="galeria-thumb" src="4dia9 cada que reviso la hora siempre sonrio, gracias a que tengo a mi novia de fondo de pantalla.jpeg" alt="foto 1" onclick="abrirGaleria(galeria09, 0)">
+                <img class="galeria-thumb" src="4dia9JAJAAJSIDJASDSA ellibrodemormon.jpeg" alt="foto 2" onclick="abrirGaleria(galeria09, 1)">
+                <img class="galeria-thumb" src="4dia9ASJHIUDJASIDJeANG.jpeg" alt="foto 3" onclick="abrirGaleria(galeria09, 2)">
+                <img class="galeria-thumb" src="4dia9ayudando a mi hermosa novia.jpeg" alt="foto 4" onclick="abrirGaleria(galeria09, 3)">
+                <img class="galeria-thumb" src="4dia9seguimosviendolaserie.jpeg" alt="foto 5" onclick="abrirGaleria(galeria09, 4)">
+            </div>
+            <div class="botones-grupo">
+                <button class="btn-recuerdo" onclick="alert('💜 ¡Cada día contigo es un regalo!')">Ver secreto</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="dia-bloque derecha">
+        <div class="contenido">
+            <span class="fecha">05 de Junio — Día 10</span>
+            <h3>Ya diez días 🌷</h3>
+            <p>Diez días y ya tengo más razones de las que puedo contar para estar agradecido de que existas y de que hayas llegado a mi vida.</p>
+            <div class="galeria-grid">
+                <img class="galeria-thumb" src="5dia10Que lindo es despertar con tus mensajes POR DIOOSS.jpeg" alt="foto 1" onclick="abrirGaleria(galeria10, 0)">
+                <img class="galeria-thumb" src="5dia10, que cielo tan hermoso capturaste miamor....jpeg" alt="foto 2" onclick="abrirGaleria(galeria10, 1)">
+                <img class="galeria-thumb" src="5dia10te empalagasteJAISDJAISDJASI.jpeg" alt="foto 3" onclick="abrirGaleria(galeria10, 2)">
+                <img class="galeria-thumb" src="5dia10 probaste los chetos soloporque los puse... te amo miña preciosa.jpeg" alt="foto 4" onclick="abrirGaleria(galeria10, 3)">
+                <img class="galeria-thumb" src="5dia10 puag helado con un frio enorme.jpeg" alt="foto 5" onclick="abrirGaleria(galeria10, 4)">
+                <img class="galeria-thumb" src="5dia10 este dia me mandaste un monton de fotos que WAAAA ENAMORADO DE ESA NIÑA .jpeg" alt="foto 10" onclick="abrirGaleria(galeria10, 5)">
+                <img class="galeria-thumb" src="5DIA10 niña tierna....jpeg" alt="foto 7" onclick="abrirGaleria(galeria10, 6)">
+                <img class="galeria-thumb" src="5dia10, esos labios....jpeg" alt="foto 8" onclick="abrirGaleria(galeria10, 7)">
+                <img class="galeria-thumb" src="5dia10 MI NECESIDAD, HABLAR CONTIGOO!!!.jpeg" alt="foto 9" onclick="abrirGaleria(galeria10, 8)">
+                <img class="galeria-thumb" src="5dia10 PRECIOSURA, HERMOSAAAAAAAAAAAA.jpeg" alt="foto 10" onclick="abrirGaleria(galeria10, 9)">
+                <img class="galeria-thumb" src="5dia10 lo siento fui un poco joker ahi.jpeg" alt="foto 11" onclick="abrirGaleria(galeria10, 10)">
+            </div>
+            <div class="botones-grupo">
+                <button class="btn-recuerdo" onclick="alert('💜 El mejor día, porque recibí muchos videos tuyos')">Ver secreto</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="dia-bloque izquierda">
+        <div class="contenido">
+            <span class="fecha">06 de Junio — Día 11</span>
+            <h3>Eres mi lugar seguro 🕊️</h3>
+            <p>Acompañarte a donde vayas es mi felicidad, porque siempre quiero estar contigo a donde vayas.</p>
+            <div class="galeria-grid">
+                <img class="galeria-thumb" src="6dia11lindo riachuelo que me hiciste ver.jpeg" alt="foto 1" onclick="abrirGaleria(galeria11, 0)">
+                <img class="galeria-thumb" src="6dia11 Ame compañarte ese dia donde te gastaste 200 soles de bolon pinpong .jpeg" alt="foto 2" onclick="abrirGaleria(galeria11, 1)">
+                <img class="galeria-thumb" src="6dia11 acompañandote miamor.jpeg" alt="foto 3" onclick="abrirGaleria(galeria11, 2)">
+                <img class="galeria-thumb" src="6dia11 aun queda pendiente esto miamor.jpeg" alt="foto 4" onclick="abrirGaleria(galeria11, 3)">
+                <img class="galeria-thumb" src="6dia11 acompañandote para comprar este protector todo caro, que por ese protector fuiste .jpeg" alt="foto 5" onclick="abrirGaleria(galeria11, 4)">
+            </div>
+            <div class="botones-grupo">
+                <button class="btn-recuerdo" onclick="alert('💜 ¡Llévame siempre a donde vayas, por favor!')">Ver secreto</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="dia-bloque derecha">
+        <div class="contenido">
+            <span class="fecha">07 de Junio — Día 12</span>
+            <h3>Cada pensamiento tuyo en mí es maravilloso ✨</h3>
+            <p>Sé que este día no hablamos mucho, pero estuve pensando en ti.</p>
+            <div class="galeria-grid">
+                <img class="galeria-thumb" src="7dia12, fui por primera vez a la iglesia, fui para poder conectar mejor con mi niña. .jpeg" alt="foto 1" onclick="abrirGaleria(galeria12, 0)">
+                <img class="galeria-thumb" src="7dia12, via al cielo porque estaba muy bonito, y ese dia me acuerdo que me dije a mi mismo Mi novia estara viendo al cielo igual.jpeg" alt="foto 2" onclick="abrirGaleria(galeria12, 1)">
+                <img class="galeria-thumb" src="7dia12aun que estuve ocupado, no deje de pensar en ti, me compre un helado sabor fresita.jpeg" alt="foto 3" onclick="abrirGaleria(galeria12, 2)">
+            </div>
+            <div class="botones-grupo">
+                <button class="btn-recuerdo" onclick="alert('💜 Me encanta pensarte')">Ver secreto</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="dia-bloque izquierda">
+        <div class="contenido">
+            <span class="fecha">08 de Junio — Día 13</span>
+            <h3>Me haces querer ser mejor 💫</h3>
+            <p>Este día no pudimos hablar tanto, debido a que estaba en la semana de juegos, pero te juro, que tus llamadas eran las que me motivaban a seguir con ganas, estaba cansado porque no tenía compañeros, pero ahí estabas tú...</p>
+            <div class="galeria-grid">
+                <img class="galeria-thumb" src="8dia13 amo a mi novia preciosa .jpeg" alt="foto 1" onclick="abrirGaleria(galeria13, 0)">
+                <img class="galeria-thumb" src="8dia13 Amo este fondo de pantalla, tengo un carusel de fondos, pero, es mi favorito. .jpeg" alt="foto 2" onclick="abrirGaleria(galeria13, 1)">
+                <img class="galeria-thumb" src="8dia13 teextraño siempre miamor.jpeg" alt="foto 3" onclick="abrirGaleria(galeria13, 2)">
+                <img class="galeria-thumb" src="8dia13 las llamdas en la noche me daban paz y ganas de seguir yendo a cumplir con mi compromiso de tomar fotos .jpeg" alt="foto 4" onclick="abrirGaleria(galeria13, 3)">
+            </div>
+            <div class="botones-grupo">
+                <button class="btn-recuerdo" onclick="alert('💜 Gracias por estar ahí para mí siempre, miamor.')">Ver secreto</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="dia-bloque derecha">
+        <div class="contenido">
+            <span class="fecha">09 de Junio — Día 14</span>
+            <h3>Dos semanas que saben a poco 🌹</h3>
+            <p>En este día te extrañé un montón, lo único que pensaba era poder terminar rápido para poder regresar contigo.</p>
+            <div class="galeria-grid">
+                <img class="galeria-thumb" src="9dia 14 la llamada de madrigada antes de irme a dormir... fue lo mejor de mis dias de mis compromisos .jpeg" alt="foto 1" onclick="abrirGaleria(galeria14, 0)">
+                <img class="galeria-thumb" src="9dia14  pensando en terminar para poder hablar con mi mujer .jpeg" alt="foto 2" onclick="abrirGaleria(galeria14, 1)">
+            </div>
+            <div class="botones-grupo">
+                <button class="btn-recuerdo" onclick="alert('💜 ¡Mi motivo, mi forma de ser!')">Ver secreto</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="dia-bloque izquierda">
+        <div class="contenido">
+            <span class="fecha">10 de Junio — Día 15</span>
+            <h3>Momentos que atesoro 💜</h3>
+            <p>Las noches a tu lado son las mejores, siempre disfruto cada momento contigo, y lo atesoro.</p>
+            <div class="galeria-grid">
+                <img class="galeria-thumb" src="10de15llamada luego de haber tenido un  día ocupado.jpeg" alt="foto 1" onclick="abrirGaleria(galeria15, 0)">
+                <img class="galeria-thumb" src="10dia15 fotito de mi novia y su Presidente russell m..jpeg" alt="foto 2" onclick="abrirGaleria(galeria15, 1)">
+                <img class="galeria-thumb" src="10dia15 tus mennsajes son los mejores miamor....jpeg" alt="foto 3" onclick="abrirGaleria(galeria15, 2)">
+                <img class="galeria-thumb" src="10dia15, Ayudando a mi noviecita linda, prefecta, bella. .jpeg" alt="foto 4" onclick="abrirGaleria(galeria15, 3)">
+                <img class="galeria-thumb" src="10dia15, Que me ecompañes me hace sentir tan bien, miamor. .jpeg" alt="foto 5" onclick="abrirGaleria(galeria15, 4)">
+            </div>
+            <div class="botones-grupo">
+                <button class="btn-recuerdo" onclick="alert('💜 ¡Me encanta generar demasiadas conexiones contigo!')">Ver secreto</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="dia-bloque derecha">
+        <div class="contenido">
+            <span class="fecha">11 de Junio — Día 16</span>
+            <h3>Mi niña descuidada 🤕</h3>
+            <p>Ese día me preocupé muchísimo por ti, porque estabas super enferma por bañarte con aguita fría en la mañana. Las fotos al cielo me gustan, porque te veo en el cielo y me imagino la canción de tonos azules de NSQK.</p>
+            <div class="galeria-grid">
+                <img class="galeria-thumb" src="11dia16 El dia que me hiciste conocer la Huatia.jpeg" alt="foto 1" onclick="abrirGaleria(galeria16, 0)">
+                <img class="galeria-thumb" src="11dia16 amo que me hayas enseñado lo de la Huatia.jpeg" alt="foto 2" onclick="abrirGaleria(galeria16, 1)">
+                <img class="galeria-thumb" src="11dia16 que lindo cielo, esta como tones de azules .jpeg" alt="foto 3" onclick="abrirGaleria(galeria16, 2)">
+                <img class="galeria-thumb" src="11dia16 cielo de tonos azules .jpeg" alt="foto 4" onclick="abrirGaleria(galeria16, 3)">
+                <img class="galeria-thumb" src="11dia16 Nosotros haciendo tu clase miamor, los dos solitos. .jpeg" alt="foto 5" onclick="abrirGaleria(galeria16, 4)">
+                <img class="galeria-thumb" src="11dia16eldiaen el que me preocupe demasiado por ti....jpeg" alt="foto 6" onclick="abrirGaleria(galeria16, 5)">
+            </div>
+            <div class="botones-grupo">
+                <button class="btn-recuerdo" onclick="alert('💜 Gracias por enseñarme tanto de tu país, mi niña linda')">Ver secreto</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="dia-bloque izquierda">
+        <div class="contenido">
+            <span class="fecha">12 de Junio — Día 17</span>
+            <h3>Tú eres lo mejor 🌌</h3>
+            <p>Siempre estás en mis días, creando nuevos recuerdos que atesoro en cada momento. Quiero tenerte todos los días posibles.</p>
+            <div class="galeria-grid">
+                <img class="galeria-thumb" src="12dia17 despertar siempre asi, me hace sentir tan feliz. .jpeg" alt="foto 1" onclick="abrirGaleria(galeria17, 0)">
+                <img class="galeria-thumb" src="12dia17 tus llamadas en mi dia tienen un impacto enorme .jpeg" alt="foto 2" onclick="abrirGaleria(galeria17, 1)">
+                <img class="galeria-thumb" src="12dia17 contigo las horas se sienten como minutos.jpeg" alt="foto 3" onclick="abrirGaleria(galeria17, 2)">
+                <img class="galeria-thumb" src="12dia17 el tiempo se detiene contigo....jpeg" alt="foto 4" onclick="abrirGaleria(galeria17, 3)">
+            </div>
+            <div class="botones-grupo">
+                <button class="btn-recuerdo" onclick="alert('💜 ¡Nunca dejes de llamarme, mi vida hermosa!')">Ver secreto</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="dia-bloque derecha">
+        <div class="contenido">
+            <span class="fecha">13 de Junio — Día 18</span>
+            <h3>Me encantan tus muecas 🦋</h3>
+            <p>Incluirme in tus planes me hace sentir una cercanía enorme. Mua, eres la mejor miamor, me encantas mujer con carita de ángel.</p>
+            <div class="galeria-grid">
+                <img class="galeria-thumb" src="13dia18 Escuchar tu voz siempre me pondra contento .jpeg" alt="foto 1" onclick="abrirGaleria(galeria18, 0)">
+                <img class="galeria-thumb" src="13dia18, Tus mensajes alegran a mi corazón. .jpeg" alt="foto 2" onclick="abrirGaleria(galeria18, 1)">
+                <img class="galeria-thumb" src="13dia18 soy aducto a ti .jpeg" alt="foto 3" onclick="abrirGaleria(galeria18, 2)">
+                <img class="galeria-thumb" src="13dia18 Te adoro miamor.jpeg" alt="foto 4" onclick="abrirGaleria(galeria18, 3)">
+                <img class="galeria-thumb" src="13dia18, escuchar este audio siempre me da un bum de amor. .jpeg" alt="foto 5" onclick="abrirGaleria(galeria18, 4)">
+                <img class="galeria-thumb" src="13dia18 mi princesita y su mejoramiga .jpeg" alt="foto 6" onclick="abrirGaleria(galeria18, 5)">
+            </div>
+            <div class="botones-grupo">
+                <button class="btn-recuerdo" onclick="alert('💜 ¡Ámame siempre, ámame para toda la eternidad!')">Ver secreto</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="dia-bloque izquierda">
+        <div class="contenido">
+            <span class="fecha">14 de Junio — Día 19</span>
+            <h3>Conectados en alma y voz 🌙</h3>
+            <p>Ese domingo aunque no fuimos juntos, sentí muy lindo el hecho de que estábamos los dos en la iglesia de Jesucristo.</p>
+            <div class="galeria-grid">
+                <img class="galeria-thumb" src="14dia19, Me encanta despertar con tus tistos .jpeg" alt="foto 1" onclick="abrirGaleria(galeria19, 0)">
+                <img class="galeria-thumb" src="14dia19, tu eres mi himno favorito. .jpeg" alt="foto 2" onclick="abrirGaleria(galeria19, 1)">
+                <img class="galeria-thumb" src="14dia19, cuando lo vi, pense en ti, se que no es un paneton, pero es uno chiqui.jpeg" alt="foto 3" onclick="abrirGaleria(galeria19, 2)">
+                <img class="galeria-thumb" src="14dia19, que nunca me faltan tus llamadas, amen.jpeg" alt="foto 4" onclick="abrirGaleria(galeria19, 3)">
+            </div>
+            <div class="botones-grupo">
+                <button class="btn-recuerdo" onclick="alert('💜 ¡Ahhhh... tengo a una novia super asombrosa!')">Ver secreto</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="dia-bloque derecha">
+        <div class="contenido">
+            <span class="fecha">15 de Junio — Día 20</span>
+            <h3>Que todo se trate de ti 🎀</h3>
+            <p>Ver el anime, sonreír juntos, es algo muy precioso que recuerdo.</p>
+            <div class="galeria-grid">
+                <img class="galeria-thumb" src="15dia20 soy feliz al ver que mi mujer aparece en todo mi telefono .jpeg" alt="foto 1" onclick="abrirGaleria(galeria20, 0)">
+                <img class="galeria-thumb" src="15dia20. De verdad, que nunca me falta una llamda tuya, que me muro sin escuchar tu voz un dia. .jpeg" alt="foto 2" onclick="abrirGaleria(galeria20, 1)">
+                <img class="galeria-thumb" src="15dia20 Me gusto ver ese cap, because estabas tu conmigo..jpeg" alt="foto 3" onclick="abrirGaleria(galeria20, 2)">
+                <img class="galeria-thumb" src="15dia20, seguimos creando conexiones y recuerdos .jpeg" alt="foto 4" onclick="abrirGaleria(galeria20, 3)">
+                <img class="galeria-thumb" src="15dia20 Todo es mutuo miamor, a donde vayas yo voy..jpeg" alt="foto 5" onclick="abrirGaleria(galeria20, 4)">
+                <img class="galeria-thumb" src="15dia20 temomiamor.jpeg" alt="foto 6" onclick="abrirGaleria(galeria20, 5)">
+            </div>
+            <div class="botones-grupo">
+                <button class="btn-recuerdo" onclick="alert('💜 ¡Sin tu amor, baby me desaparezco!')">Ver secreto</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="dia-bloque izquierda">
+        <div class="contenido">
+            <span class="fecha">16 de Junio — Día 21</span>
+            <h3>Tres semanas de novios 💍</h3>
+            <p>Cada día que pasa, es una nueva experiencia a tu lado y yo quiero hacer un millón de cosas contigo.</p>
+            <div class="galeria-grid">
+                <img class="galeria-thumb" src="16dia21 Que seas lo primero que escuche en la mañana siempre por favor. .jpeg" alt="foto 1" onclick="abrirGaleria(galeria21, 0)">
+                <img class="galeria-thumb" src="16dia21 hablar durante horas, donde no hay nocion del tiempo, es una sensacion indescriptible.jpeg" alt="foto 2" onclick="abrirGaleria(galeria21, 1)">
+                <img class="galeria-thumb" src="16dia21, solamente tu en toda la eternidad.jpeg" alt="foto 3" onclick="abrirGaleria(galeria21, 2)">
+                <img class="galeria-thumb" src="16dia21 Solamente quiero jugar a los jueguitos contigo, solo tu solo tu.jpeg" alt="foto 4" onclick="abrirGaleria(galeria21, 3)">
+            </div>
+            <div class="botones-grupo">
+                <button class="btn-recuerdo" onclick="alert('💜 ¡Eres solo mía, miamor!')">Ver secreto</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="dia-bloque derecha">
+        <div class="contenido">
+            <span class="fecha">17 de Junio — Día 22</span>
+            <h3>Divirtiéndonos juntos 🎮</h3>
+            <p>Los días pasan, y las experiencias crecen. Es divertido y emocionante estar a tu lado, siempre me haces sentir algo nuevo.</p>
+            <div class="galeria-grid">
+                <img class="galeria-thumb" src="17dia22 con tu voz dime miamor, dime te amo, dime te extraño porque me vuelco loco contigo.jpeg" alt="foto 1" onclick="abrirGaleria(galeria22, 0)">
+                <img class="galeria-thumb" src="17dia22, me agrada que todo sea tu y yo, aletzis esta pero el es un tercero .jpeg" alt="foto 2" onclick="abrirGaleria(galeria22, 1)">
+                <img class="galeria-thumb" src="17dia22La que más resalta .jpeg" alt="foto 3" onclick="abrirGaleria(galeria22, 2)">
+                <img class="galeria-thumb" src="17dia22, tus no negociable .jpeg" alt="foto 4" onclick="abrirGaleria(galeria22, 3)">
+            </div>
+            <div class="botones-grupo">
+                <button class="btn-recuerdo" onclick="alert('💜 ¡Solo quiero jugar mis juegos contigo!')">Ver secreto</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="dia-bloque izquierda">
+        <div class="contenido">
+            <span class="fecha">18 de Junio — Día 23</span>
+            <h3>Eres mi vida entera ❤️</h3>
+            <p>Requisito indispensable para mi día a día, es escuchar tu voz y saber de ti...</p>
+            <div class="galeria-grid">
+                <img class="galeria-thumb" src="18dia23, quiero tenerte en mi vida todo el tiempo, hablando de cualquier cosa, pero acercandonos.jpeg" alt="foto 1" onclick="abrirGaleria(galeria23, 0)">
+                <img class="galeria-thumb" src="18dia23, Este es el mejor historial de llamadas.jpeg" alt="foto 2" onclick="abrirGaleria(galeria23, 1)">
+                <img class="galeria-thumb" src="18dia23, me tiene hipnotisado, me tienes a tus pies niña preciosa.jpeg" alt="foto 3" onclick="abrirGaleria(galeria23, 2)">
+                <img class="galeria-thumb" src="18dia32 wow...7horas contigo....jpeg" alt="foto 4" onclick="abrirGaleria(galeria23, 3)">
+            </div>
+            <div class="botones-grupo">
+                <button class="btn-recuerdo" onclick="alert('💜 ¡Tú en vestido... wow... es increíble de ver... me dejaste embobado!')">Ver secreto</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="dia-bloque derecha">
+        <div class="contenido">
+            <span class="fecha">19 de Junio — Día 24</span>
+            <h3>Día de solo pensar en ti 🌟</h3>
+            <p>En este día únicamente estuve pensando en ti, estuve muy al pendiente de tu persona este día, no paraba de mencionarle a Aletzi sobre ti.</p>
+            <div class="galeria-grid">
+                <img class="galeria-thumb" src="19dia24 Ya se volvio una rutina tus llamadas, y quiero que asi sean hasta vernos en persona .jpeg" alt="foto 1" onclick="abrirGaleria(galeria24, 0)">
+                <img class="galeria-thumb" src="19dia24 estos ojos solo te miran a ti.jpeg" alt="foto 2" onclick="abrirGaleria(galeria24, 1)">
+                <img class="galeria-thumb" src="19dia24 floresparamimujercita.jpeg" alt="foto 3" onclick="abrirGaleria(galeria24, 2)">
+                <img class="galeria-thumb" src="19dia24 miprioridad.jpeg" alt="foto 4" onclick="abrirGaleria(galeria24, 3)">
+                <img class="galeria-thumb" src="19dia24nuestro carro... solo de nosotros .jpeg" alt="foto 5" onclick="abrirGaleria(galeria24, 4)">
+                <img class="galeria-thumb" src="19dia24 este monito me hizo recordar a ti .jpeg" alt="foto 6" onclick="abrirGaleria(galeria24, 5)">
+            </div>
+            <div class="botones-grupo">
+                <button class="btn-recuerdo" onclick="alert('💜 ¡Te amo un montón miamor!')">Ver secreto</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="dia-bloque izquierda">
+        <div class="contenido">
+            <span class="fecha">20 de Junio — Día 25</span>
+            <h3>Estrenando mi teclado con una foto tuya 🌸💜</h3>
+            <p>Un mes desde que dijimos sí. Un mes de aprender, de reír, de extrañarnos y de querer más. Gracias por ser tú, mi Flor de María. Este viaje apenas comienza.</p>
+            <div class="galeria-grid">
+                <img class="galeria-thumb" src="20dia25 Que todo el mundo sepa que eres mi novia y que estoy obsecionado contigo .jpeg" alt="foto 1" onclick="abrirGaleria(galeria25, 0)">
+                <img class="galeria-thumb" src="20dia25 los labios de mi hermosa novia .jpeg" alt="foto 2" onclick="abrirGaleria(galeria25, 1)">
+                <img class="galeria-thumb" src="20dia25 Rin Rin Rin Rin Rin agarra el telefono .jpeg" alt="foto 3" onclick="abrirGaleria(galeria25, 2)">
+                <img class="galeria-thumb" src="20dia25 este mensaje me dio un sentimiento .jpeg" alt="foto 4" onclick="abrirGaleria(galeria25, 3)">
+            </div>
+            <div class="botones-grupo">
+                <button class="btn-recuerdo" onclick="alert('💜 ¡TE AMO MI CERECITO 🌸')">Mensaje especial</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="dia-bloque derecha">
+        <div class="contenido">
+            <span class="fecha">21 de Junio — Día 26</span>
+            <h3>Y el amor sigue creciendo 🌱</h3>
+            <p>Disfrutar de tu compañía todos los días es un verdadero regalo que aprecio con todo el corazón, tenerte como mi pareja para la eternidad es simplemente algo que pienso y mi corazón se ablanda.</p>
+            <div class="galeria-grid">
+                <img class="galeria-thumb" src="21DIA26 adoro todas las llamadas contigo, eres la mujer de mis sueños .jpeg" alt="foto 1" onclick="abrirGaleria(galeria26, 0)">
+                <img class="galeria-thumb" src="21dia26 AMO A MI NOVIA .jpeg" alt="foto 2" onclick="abrirGaleria(galeria26, 1)">
+            </div>
+            <div class="botones-grupo">
+                <button class="btn-recuerdo" onclick="alert('💜 ¡Hablar contigo siempre es lo mejor, nunca hay un momento imperfecto para hablar!')">Ver secreto</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="dia-bloque izquierda">
+        <div class="contenido">
+            <span class="fecha">22 de Junio — Día 27</span>
+            <h3>Gracias por existir mi click 🙏</h3>
+            <p>Hoy solo quiero decirte gracias. Gracias por ser como eres, por aparecer en mi vida y por hacer que cada día tenga más sentido y más color.</p>
+            <div class="galeria-grid">
+                <img class="galeria-thumb" src="22dia27 estar acompañado de ti, es lo mejor del mundo. te amo tanto .jpeg" alt="foto 1" onclick="abrirGaleria(galeria27, 0)">
+                <img class="galeria-thumb" src="22dia27 Hablar contigo siempre es lo mejor de mis dias.jpeg" alt="foto 2" onclick="abrirGaleria(galeria27, 1)">
+                <img class="galeria-thumb" src="22dia27 Nuestra pelicula .jpeg" alt="foto 3" onclick="abrirGaleria(galeria27, 2)">
+                <img class="galeria-thumb" src="22dia27 mi click .jpeg" alt="foto 4" onclick="abrirGaleria(galeria27, 3)">
+                <img class="galeria-thumb" src="22dia27 seremos esos peligrosos.jpeg" alt="foto 5" onclick="abrirGaleria(galeria27, 4)">
+                <img class="galeria-thumb" src="22dia27, tienes la personalidad de mavis miamor.jpeg" alt="foto 6" onclick="abrirGaleria(galeria27, 5)">
+                <img class="galeria-thumb" src="22dia27 puede que solo en las expresiones sea como johnny.jpeg" alt="foto 7" onclick="abrirGaleria(galeria27, 6)">
+                <img class="galeria-thumb" src="22dia27 Terminando de ver nuestra primera pelicula .jpeg" alt="foto 8" onclick="abrirGaleria(galeria27, 7)">
+            </div>
+            <div class="botones-grupo">
+                <button class="btn-recuerdo" onclick="alert('💜 ¡Amé ver Hotel Transilvania contigo miamor!')">Ver secreto</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="dia-bloque derecha">
+        <div class="contenido">
+            <span class="fecha">23 de Junio — Día 28</span>
+            <h3>No tengo palabras suficientes 💬</h3>
+            <p>A veces lo que siento es tan grande que las palabras se quedan cortas. Pero espero que con cada detalle, con cada gesto, puedas sentir todo lo que no sé decir.</p>
+            <div class="galeria-grid">
+                <img class="galeria-thumb" src="23dia28, simplementeteamo.jpeg" alt="foto 1" onclick="abrirGaleria(galeria28, 0)">
+                <img class="galeria-thumb" src="23dia28 me encanta ver las notificaciones que me llegan, si se trata de ti salto de alegria .jpeg" alt="foto 2" onclick="abrirGaleria(galeria28, 1)">
+                <img class="galeria-thumb" src="23dia28 Algo que se quedo grabado en mi memoria .jpeg" alt="foto 3" onclick="abrirGaleria(galeria28, 2)">
+            </div>
+            <div class="botones-grupo">
+                <button class="btn-recuerdo" onclick="alert('💜 ¡TE AMOOOOO MI NIÑITA LINDAAAAAAAAAAAA!')">Ver secreto</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="dia-bloque izquierda">
+        <div class="contenido">
+            <span class="fecha">24 de Junio — Día 29</span>
+            <h3>Este mes fue solo el primer capítulo 📖</h3>
+            <p>Si este mes fue tan bonito, no puedo imaginar todo lo que nos queda por vivir. Ojalá cada capítulo de nuestra historia sea más lindo que el anterior.</p>
+            <div class="galeria-grid">
+                <img class="galeria-thumb" src="24dia29 dormir acompañado de ti es la mejor sesacion del mundo .jpeg" alt="foto 1" onclick="abrirGaleria(galeria29, 0)">
+                <img class="galeria-thumb" src="24dia29, 9 horas de llamada... quisiera un 24 hrs....jpeg" alt="foto 2" onclick="abrirGaleria(galeria29, 1)">
+                <img class="galeria-thumb" src="24dia29  tienes la personalidad de mavis miamor.jpeg" alt="foto 3" onclick="abrirGaleria(galeria29, 2)">
+                <img class="galeria-thumb" src="24dia29 yo y tu familia alguin dia.jpeg" alt="foto 4" onclick="abrirGaleria(galeria29, 3)">
+                <img class="galeria-thumb" src="24dia29, mis ojos te ven de esa forma, asi como johnyy ve a mavis....jpeg" alt="foto 5" onclick="abrirGaleria(galeria29, 4)">
+                <img class="galeria-thumb" src="24dia29 JAISJDIASJDISA nosotros.jpeg" alt="foto 6" onclick="abrirGaleria(galeria29, 5)">
+                <img class="galeria-thumb" src="24dia29, tantas cosas que estan realcionadas a ti....jpeg" alt="foto 7" onclick="abrirGaleria(galeria29, 6)">
+                <img class="galeria-thumb" src="24dia29 conocer a mi niña linda, es lo que mas me gusta.jpeg" alt="foto 8" onclick="abrirGaleria(galeria29, 7)">
+                <img class="galeria-thumb" src="24dia29 te amo tanto miamor.jpeg" alt="foto 9" onclick="abrirGaleria(galeria29, 8)">
+                <img class="galeria-thumb" src="24dia29 CUMPLEAÑOS SI QUE SI .jpeg" alt="foto 10" onclick="abrirGaleria(galeria29, 9)">
+            </div>
+            <div class="botones-grupo">
+                <button class="btn-recuerdo" onclick="alert('💜 ¡Edita este mensaje con tu secreto del día 29!')">Ver secreto</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="dia-bloque derecha">
+        <div class="contenido">
+            <span class="fecha">25 de Junio — ¡Primer mes! 🌠</span>
+            <h3>Treinta días que cambiaron todo</h3>
+            <p>Treinta días. Treinta razones para sonreír. Treinta momentos que guardo en el corazón. Gracias miamor, por hacer de este mes algo que atesoraré, y los que faltan para atesorar. Mi click.</p>
+            <div class="galeria-grid">
+                <img class="galeria-thumb" src="dia30 Eres mi click.jpeg" alt="foto 1" onclick="abrirGaleria(galeria30, 0)">
+            </div>
+            <div class="botones-grupo">
+                <button class="btn-recuerdo" onclick="alert('🌸 30 días contigo y quiero muchos más! Mi Florecita, gracias por todo 💜')">Cierre especial</button>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<footer>
+    <p>Este hermoso viaje apenas está comenzando, mi niña tierna.... ❤️</p>
+</footer>
+
+<div class="modal-overlay" id="modalGaleria" onclick="cerrarSiOverlay(event)">
+    <div class="modal-caja">
+        <button class="modal-cerrar" onclick="cerrarGaleria()">✕</button>
+        <div class="modal-contador" id="modalContador">Foto 1 de 1</div>
+        <div class="modal-img-wrap">
+            <button class="modal-flecha" id="btnAnterior" onclick="cambiarFoto(-1)">‹</button>
+            <img class="modal-img" id="modalImagen" src="" alt="Foto"
+                 onerror="this.style.display='none'; document.getElementById('errorImagen').style.display='flex'">
+            <div class="modal-img-error" id="errorImagen">
+                <span>🖼️</span>
+                <p>No se encontró la imagen.<br>Revisa que el nombre del archivo sea correcto.</p>
+            </div>
+            <button class="modal-flecha" id="btnSiguiente" onclick="cambiarFoto(1)">›</button>
+        </div>
+        <div class="modal-texto-foto" id="modalTextoFoto"></div>
+        <div class="modal-thumbs" id="modalThumbs"></div>
+    </div>
+</div>
+
+<div class="modal-overlay-simple" id="modalFotoUnica" onclick="cerrarSiOverlaySimple(event)">
+    <div class="modal-caja-simple">
+        <button class="modal-cerrar" onclick="cerrarFotoUnica()">✕</button>
+        <div class="modal-img-wrap-simple">
+            <img class="modal-img-simple" id="imagenUnica" src="" alt="Foto"
+                 onerror="this.style.display='none'; document.getElementById('errorImagenUnica').style.display='flex'">
+            <div class="modal-img-error" id="errorImagenUnica" style="display:none;">
+                <span>🖼️</span>
+                <p>No se encontró la imagen.<br>Revisa que el nombre del archivo sea correcto.</p>
+            </div>
+        </div>
+        <div class="modal-texto-foto-simple" id="textoFotoUnica"></div>
+    </div>
+</div>
+
+<script>
+// ============================================================
+//   GALERÍAS — TEXTOS EXTRAÍDOS DE LOS NOMBRES DE IMAGEN
+// ============================================================
+
+const galeria01 = [
+    { src: 'HABALNDOEL PRIMERDIADENOVIOS.jpeg', texto: 'Nuestra llamada del primer día de novios...' },
+    { src: 'FOTITODEDONDE ESTABA.jpeg', texto: 'Fotito tuya que me mandaste ese día' },
+    { src: '26dia1fotodemihermosanovia.jpeg', texto: 'Una foto de mi hermosa novia (me la mandaste porque tus amigos estaban haciendo cosas de IA con tus fotos)' }
+];
+
+const galeria02 = [
+    { src: '27dia2dibujo.jpeg', texto: 'Ese dibujo me gusta, no porque sea algo sigma, sino porque es algo que tú hiciste para que tus alumnos se la pasaran bien' },
+    { src: '27dia2Llamadadenovios.jpeg', texto: 'Llamada de novios JIJIJIIJIJII' },
+    { src: '27dia2tiktok.jpeg', texto: 'Al leer el texto del video que me dedicaste, sentí muchas cosas...' },
+    { src: '27dia2tiktok2parte.jpeg', texto: 'Cuando ya leí esta parte, exploté, sentí una ola de emociones de felicidad y alegría' },
+    { src: '27diadosfotofavorita.jpeg', texto: 'La fotito que me encanta por cómo se ven tus ojos ahí y por cómo resaltan demasiado tus mejillas' },
+    { src: '27DIA2FONDODEPANTALLA.jpeg', texto: 'Fondo de pantalla' },
+    { src: '27dia2cancionfav.jpeg', texto: 'La canción que me dedicaste' }
+];
+
+const galeria03 = [
+    { src: '28dia3FONDODEPANTALLA.jpeg', texto: 'Mi fondo donde está mi novia hermosa, preciosa, bella' },
+    { src: '28dia3Llamadaconminovia.jpeg', texto: 'Habando con el amor de mi vida' },
+    { src: '28dia3playlist para ir a casa.jpeg', texto: 'La playlist para ir a casa' },
+    { src: '28dia3leencantalaplaylist.jpeg', texto: 'Yo estaba saltando como niño pequeño cuando leí que te encantaba la playlist' }
+];
+
+const galeria04 = [
+    { src: '29dia4desperarconsusmensajes lo mejor.jpeg', texto: 'Despertar con tus mensajes es lo mejor... Simplemente lo mejor del mundo' },
+    { src: '29dia4caminaparaescuicharmusicaonmigo.jpeg', texto: '"Voy caminando para poder escuchar música contigo" — No sabes cómo sentí leer eso' },
+    { src: '29dia4juegoviley.jpeg', texto: 'Jugando vóley' },
+    { src: '29dia4moestarmelosdoles.jpeg', texto: 'Fotito de los soles' },
+    { src: '29dia4nolesabrieron...JAJJAJAJAJJA.jpeg', texto: 'Al final no les abrieron JAJAJAAJAJ' }
+];
+
+const galeria05 = [
+    { src: '30dia5Comprandosusabdordedulcefav.jpeg', texto: 'Probando el dulcecito que te encanta' },
+    { src: '30dia5escuchamosjuntosunacacionhermosa.jpeg', texto: 'Escuchando una canción hermosa juntos' },
+    { src: '30dia5fotodesuabrigo.jpeg', texto: 'Fotito de tu abrigo' },
+    { src: '30dia5mededicounacancion en notas.jpeg', texto: 'Me dedicaste una canción hermosa...' },
+    { src: '30dia5viendolabailar.jpeg', texto: 'Cuando vi el video donde bailabas... fue simplemente precioso de ver' },
+    { src: '30dia5viendocomoagarraesamepanada.jpeg', texto: 'Verte bailar me dejó embobado' },
+    { src: '31dia6ESCUCHANDOMUSICAJUNTOS.jpeg', texto: 'Escuchando música juntos' },
+    { src: '31dia6escuchandomusicaconminovia.jpeg', texto: 'Escuchar música contigo me hace sentir tan feliz' },
+    { src: '31dia6Cancionquemedediconuevamenteporqueeneldiadosmelodedico.jpeg', texto: 'Me dedicaste en la Jam la canción de tus notitas, y es una canción que adoro y me encanta escucharla' },
+    { src: '31dia6minoviaconmocasines.jpeg', texto: 'Mi hermosa novia usando mocasines' }
+];
+
+const galeria06 = [
+    { src: '1dia7Cieloazultanbelloqueellamemando.jpeg', texto: 'El cielo azul tan bello que me mandaste ese día' },
+    { src: '1dia7ayudandoaminoviaconsuclase,primeraclase.jpeg', texto: 'Nuestra primera clase juntos en llamada' },
+    { src: '1dia7disfrutandodeminovia.jpeg', texto: 'Simplemente disfrutando de ti' },
+    { src: '1dia7sufrutafavorita.jpeg', texto: 'Una de tus frutitas favoritas' },
+    { src: '1dia7ayudandoaminovia.jpeg', texto: 'Terminando la clase' },
+    { src: '1dia7yougurtellaesliteso.jpeg', texto: 'Tu paraíso (porque te encantan los yogures)' }
+];
+
+const galeria07 = [
+    { src: '2dia8DESPERTECONMENSAJITOS.jpeg', texto: 'Despertar con tus mensajes me alegra demasiado el día, miamor' },
+    { src: '2dia8MENSAJESDEIGFELICES.jpeg', texto: 'Mensajes maravillosos en Instagram' },
+    { src: '2dia8dulcesqueellasecomio.jpeg', texto: 'Los dulces deliciosos que te comiste' },
+    { src: '2dia8Dulcequeellamedio7entotal.jpeg', texto: 'Mis dulces, que ahora ya no existen' },
+    { src: '2dia8escuchandoOPENINGS.jpeg', texto: 'Ahora me gusta mucho más ese opening' }
+];
+
+const galeria08 = [
+    { src: '3dia9 EMPZAMOS AVER EL ANIME.jpeg', texto: 'Empezamos a ver juntos el anime' },
+    { src: '3dia9seguimosaun.jpeg', texto: 'Seguimos viéndolo sin parar' },
+    { src: '3DIA9 seguimosviendoelanime.jpeg', texto: 'Disfrutando de tu compañía, mua' },
+    { src: '3dia9primercap.jpeg', texto: 'El primer capítulo' },
+    { src: '3dia9vamosdenuevo.jpeg', texto: 'Tantas conexiones que tengo de ti ahora...' }
+];
+
+const galeria09 = [
+    { src: '4dia9 cada que reviso la hora siempre sonrio, gracias a que tengo a mi novia de fondo de pantalla.jpeg', texto: 'Cada que reviso la hora siempre sonrío, gracias a que tengo a mi novia de fondo de pantalla' },
+    { src: '4dia9JAJAAJSIDJASDSA ellibrodemormon.jpeg', texto: 'JAJAJAJA el libro de Mormón' },
+    { src: '4dia9ASJHIUDJASIDJeANG.jpeg', texto: 'El ángel Moroni' },
+    { src: '4dia9ayudando a mi hermosa novia.jpeg', texto: 'Ayudando a mi hermosa novia' },
+    { src: '4dia9seguimosviendolaserie.jpeg', texto: 'Seguimos viendo la serie' }
+];
+
+const galeria10 = [
+    { src: '5dia10Que lindo es despertar con tus mensajes POR DIOOSS.jpeg', texto: 'Qué lindo es despertar con tus mensajes, POR DIOS' },
+    { src: '5dia10, que cielo tan hermoso capturaste miamor....jpeg', texto: 'Qué cielo tan hermoso capturaste, miamor' },
+    { src: '5dia10te empalagasteJAISDJAISDJASI.jpeg', texto: 'Te empalagaste JAJAJAJAJA' },
+    { src: '5dia10 probaste los chetos soloporque los puse... te amo miña preciosa.jpeg', texto: 'Probaste los chetos solo porque los puse... te amo, miña preciosa' },
+    { src: '5dia10 puag helado con un frio enorme.jpeg', texto: 'Helado con un frío enorme' },
+    { src: '5dia10 este dia me mandaste un monton de fotos que WAAAA ENAMORADO DE ESA NIÑA .jpeg', texto: 'Este día me mandaste un montón de fotos que WAAAA, enamorado de esa niña' },
+    { src: '5DIA10 niña tierna....jpeg', texto: 'Niña tierna...' },
+    { src: '5dia10, esos labios....jpeg', texto: 'Esos labios...' },
+    { src: '5dia10 MI NECESIDAD, HABLAR CONTIGOO!!!.jpeg', texto: 'MI NECESIDAD, HABLAR CONTIGO!!!' },
+    { src: '5dia10 PRECIOSURA, HERMOSAAAAAAAAAAAA.jpeg', texto: 'PRECIOSURA, HERMOSAAAAAAAAAAA' },
+    { src: '5dia10 lo siento fui un poco joker ahi.jpeg', texto: 'Lo siento, fui un poco joker ahí' }
+];
+
+const galeria11 = [
+    { src: '6dia11lindo riachuelo que me hiciste ver.jpeg', texto: 'Lindo riachuelo que me hiciste ver' },
+    { src: '6dia11 Ame compañarte ese dia donde te gastaste 200 soles de bolon pinpong .jpeg', texto: 'Amé acompañarte ese día donde te gastaste 200 soles de bolón ping pong' },
+    { src: '6dia11 acompañandote miamor.jpeg', texto: 'Acompañándote, miamor' },
+    { src: '6dia11 aun queda pendiente esto miamor.jpeg', texto: 'Aún queda pendiente esto, miamor' },
+    { src: '6dia11 acompañandote para comprar este protector todo caro, que por ese protector fuiste .jpeg', texto: 'Acompañándote para comprar ese protector todo caro, que por ese protector fuiste' }
+];
+
+const galeria12 = [
+    { src: '7dia12, fui por primera vez a la iglesia, fui para poder conectar mejor con mi niña. .jpeg', texto: 'Fui por primera vez a la iglesia, para poder conectar mejor con mi niña' },
+    { src: '7dia12, via al cielo because estaba muy bonito, y ese dia me acuerdo que me dije a mi mismo Mi novia estara viendo al cielo igual.jpeg', texto: 'Vi al cielo porque estaba muy bonito, y ese día me dije: "mi novia estará viendo al cielo igual"' },
+    { src: '7dia12aun que estuve ocupado, no deje de pensar en ti, me compre un helado sabor fresita.jpeg', texto: 'Aunque estuve ocupado, no dejé de pensar en ti, me compré un helado sabor fresa' }
+];
+
+const galeria13 = [
+    { src: '8dia13 amo a mi novia preciosa .jpeg', texto: 'Amo a mi novia preciosa' },
+    { src: '8dia13 Amo este fondo de pantalla, tengo un carusel de fondos, pero, es mi favorito. .jpeg', texto: 'Amo este fondo de pantalla, tengo un carrusel de fondos, pero es mi favorito' },
+    { src: '8dia13 teextraño siempre miamor.jpeg', texto: 'Te extraño siempre, miamor' },
+    { src: '8dia13 las llamdas en la noche me daban paz y ganas de seguir yendo a cumplir con mi compromiso de tomar fotos .jpeg', texto: 'Las llamadas en la noche me daban paz y ganas de seguir cumpliendo mi compromiso' }
+];
+
+const galeria14 = [
+    { src: '9dia 14 la llamada de madrigada antes de irme a dormir... fue lo mejor de mis dias de mis compromisos .jpeg', texto: 'La llamada de madrugada antes de irme a dormir... fue lo mejor de mis días de compromisos' },
+    { src: '9dia14  pensando en terminar para poder hablar con mi mujer .jpeg', texto: 'Pensando en terminar para poder hablar con mi mujer' }
+];
+
+const galeria15 = [
+    { src: '10de15llamada luego de haber tenido un  día ocupado.jpeg', texto: 'Llamada luego de haber tenido un día ocupado' },
+    { src: '10dia15 fotito de mi novia y su Presidente russell m..jpeg', texto: 'Fotito de mi novia y su Presidente Russell M.' },
+    { src: '10dia15 tus mennsajes son los mejores miamor....jpeg', texto: 'Tus mensajes son los mejores, miamor...' },
+    { src: '10dia15, Ayudando a mi noviecita linda, prefecta, bella. .jpeg', texto: 'Ayudando a mi noviecita linda, perfecta, bella' },
+    { src: '10dia15, Que me ecompañes me hace sentir tan bien, miamor. .jpeg', texto: 'Que me acompañes me hace sentir tan bien, miamor' }
+];
+
+const galeria16 = [
+    { src: '11dia16 El dia que me hiciste conocer la Huatia.jpeg', texto: 'El día que me hiciste conocer la Huatia' },
+    { src: '11dia16 amo que me hayas enseñado lo de la Huatia.jpeg', texto: 'Amo que me hayas enseñado lo de la Huatia' },
+    { src: '11dia16 que lindo cielo, esta como tones de azules .jpeg', texto: 'Qué lindo cielo, está como tonos de azules' },
+    { src: '11dia16 cielo de tonos azules .jpeg', texto: 'Cielo de tonos azules' },
+    { src: '11dia16 Nosotros haciendo tu clase miamor, los dos solitos. .jpeg', texto: 'Nosotros haciendo tu clase, miamor, los dos solitos' },
+    { src: '11dia16eldiaen el que me preocupe demasiado por ti....jpeg', texto: 'El día en el que me preocupé demasiado por ti...' }
+];
+
+const galeria17 = [
+    { src: '12dia17 despertar siempre asi, me hace sentir tan feliz. .jpeg', texto: 'Despertar siempre así me hace sentir tan feliz' },
+    { src: '12dia17 tus llamadas en mi dia tienen un impacto enorme .jpeg', texto: 'Tus llamadas en mi día tienen un impacto enorme' },
+    { src: '12dia17 contigo las horas se sienten como minutos.jpeg', texto: 'Contigo las horas se sienten como minutos' },
+    { src: '12dia17 el tiempo se detiene contigo....jpeg', texto: 'El tiempo se detiene contigo...' }
+];
+
+const galeria18 = [
+    { src: '13dia18 Escuchar tu voz siempre me pondra contento .jpeg', texto: 'Escuchar tu voz siempre me pondrá contento' },
+    { src: '13dia18, Tus mensajes alegran a mi corazón. .jpeg', texto: 'Tus mensajes alegran a mi corazón' },
+    { src: '13dia18 soy aducto a ti .jpeg', texto: 'Soy adicto a ti' },
+    { src: '13dia18 Te adoro miamor.jpeg', texto: 'Te adoro, miamor' },
+    { src: '13dia18, escuchar este audio siempre me da un bum de amor. .jpeg', texto: 'Escuchar este audio siempre me da un boom de amor' },
+    { src: '13dia18 mi princesita y su mejoramiga .jpeg', texto: 'Mi princesita y su mejor amiga' }
+];
+
+const galeria19 = [
+    { src: '14dia19, Me encanta despertar con tus tistos .jpeg', texto: 'Me encanta despertar con tus tistos' },
+    { src: '14dia19, tu eres mi himno favorito. .jpeg', texto: 'Tú eres mi himno favorito' },
+    { src: '14dia19, cuando lo vi, pense en ti, se que no es un paneton, pero es uno chiqui.jpeg', texto: 'Cuando lo vi, pensé en ti, sé que no es un panetón, pero es uno chiqui' },
+    { src: '14dia19, que nunca me faltan tus llamadas, amen.jpeg', texto: 'Que nunca me falten tus llamadas, amén' }
+];
+
+const galeria20 = [
+    { src: '15dia20 soy feliz al ver que mi mujer aparece en todo mi telefono .jpeg', texto: 'Soy feliz al ver que mi mujer aparece en todo mi teléfono' },
+    { src: '15dia20. De verdad, que nunca me falta una llamda tuya, que me muro sin escuchar tu voz un dia. .jpeg', texto: 'De verdad, que nunca me falta una llamada tuya, que me muero sin escuchar tu voz un día' },
+    { src: '15dia20 Me gusto ver ese cap, because estabas tu conmigo..jpeg', texto: 'Me gustó ver ese cap, porque estabas tú conmigo' },
+    { src: '15dia20, seguimos creando conexiones y recuerdos .jpeg', texto: 'Seguimos creando conexiones y recuerdos' },
+    { src: '15dia20 Todo es mutuo miamor, a donde vayas yo voy..jpeg', texto: 'Todo es mutuo, miamor, a donde vayas yo voy' },
+    { src: '15dia20 temomiamor.jpeg', texto: 'Te amo, miamor' }
+];
+
+const galeria21 = [
+    { src: '16dia21 Que seas lo primero que escuche en la mañana siempre por favor. .jpeg', texto: 'Que seas lo primero que escuche en la mañana, siempre, por favor' },
+    { src: '16dia21 hablar durante horas, donde no hay nocion del tiempo, es una sensacion indescriptible.jpeg', texto: 'Hablar durante horas, donde no hay noción del tiempo, es una sensación indescriptible' },
+    { src: '16dia21, solamente tu en toda la eternidad.jpeg', texto: 'Solamente tú en toda la eternidad' },
+    { src: '16dia21 Solamente quiero jugar a los jueguitos contigo, solo tu solo tu.jpeg', texto: 'Solamente quiero jugar a los jueguitos contigo, solo tú, solo tú' }
+];
+
+const galeria22 = [
+    { src: '17dia22 con tu voz dime miamor, dime te amo, dime te extraño porque me vuelco loco contigo.jpeg', texto: 'Con tu voz dime miamor, dime te amo, dime te extraño, porque me vuelvo loco contigo' },
+    { src: '17dia22, me agrada que todo sea tu y yo, aletzis esta pero el es un tercero .jpeg', texto: 'Me agrada que todo sea tú y yo, Aletzi está pero es un tercero' },
+    { src: '17dia22La que más resalta .jpeg', texto: 'La que más resalta' },
+    { src: '17dia22, tus no negociable .jpeg', texto: 'Tus no negociables' }
+];
+
+const galeria23 = [
+    { src: '18dia23, quiero tenerte en mi vida todo el tiempo, hablando de cualquier cosa, pero acercandonos.jpeg', texto: 'Quiero tenerte en mi vida todo el tiempo, hablando de cualquier cosa, pero acercándonos' },
+    { src: '18dia23, Este es el mejor historial de llamadas.jpeg', texto: 'Este es el mejor historial de llamadas' },
+    { src: '18dia23, me tiene hipnotisado, me tienes a tus pies niña preciosa.jpeg', texto: 'Me tienes hipnotizado, me tienes a tus pies, niña preciosa' },
+    { src: '18dia32 wow...7horas contigo....jpeg', texto: 'Wow... 7 horas contigo...' }
+];
+
+const galeria24 = [
+    { src: '19dia24 Ya se volvio una rutina tus llamadas, y quiero que asi sean hasta vernos en persona .jpeg', texto: 'Ya se volvió una rutina tus llamadas, y quiero que así sean hasta vernos en persona' },
+    { src: '19dia24 estos ojos solo te miran a ti.jpeg', texto: 'Estos ojos solo te miran a ti' },
+    { src: '19dia24 floresparamimujercita.jpeg', texto: 'Flores para mi mujercita' },
+    { src: '19dia24 miprioridad.jpeg', texto: 'Mi prioridad' },
+    { src: '19dia24nuestro carro... solo de nosotros .jpeg', texto: 'Nuestro carro... solo de nosotros' },
+    { src: '19dia24 este monito me hizo recordar a ti .jpeg', texto: 'Este monito me hizo recordar a ti' }
+];
+
+const galeria25 = [
+    { src: '20dia25 Que todo el mundo sepa que eres mi novia y que estoy obsecionado contigo .jpeg', texto: 'Que todo el mundo sepa que eres mi novia y que estoy obsesionado contigo' },
+    { src: '20dia25 los labios de mi hermosa novia .jpeg', texto: 'Los labios de mi hermosa novia' },
+    { src: '20dia25 Rin Rin Rin Rin Rin agarra el telefono .jpeg', texto: 'Rin rin rin rin... ¡agarra el teléfono!' },
+    { src: '20dia25 este mensaje me dio un sentimiento .jpeg', texto: 'Este mensaje me dio un sentimiento muy especial' }
+];
+
+const galeria26 = [
+    { src: '21DIA26 adoro todas las llamadas contigo, eres la mujer de mis sueños .jpeg', texto: 'Adoro todas las llamadas contigo, eres la mujer de mis sueños' },
+    { src: '21dia26 AMO A MI NOVIA .jpeg', texto: 'AMO A MI NOVIA' }
+];
+
+const galeria27 = [
+    { src: '22dia27 estar acompañado de ti, es lo mejor del mundo. te amo tanto .jpeg', texto: 'Estar acompañado de ti es lo mejor del mundo. Te amo tanto' },
+    { src: '22dia27 Hablar contigo siempre es lo mejor de mis dias.jpeg', texto: 'Hablar contigo siempre es lo mejor de mis días' },
+    { src: '22dia27 Nuestra pelicula .jpeg', texto: 'Nuestra película' },
+    { src: '22dia27 mi click .jpeg', texto: 'Mi click' },
+    { src: '22dia27 seremos esos peligrosos.jpeg', texto: 'Seremos esos peligrosos' },
+    { src: '22dia27, tienes la personalidad de mavis miamor.jpeg', texto: 'Tienes la personalidad de Mavis, miamor' },
+    { src: '22dia27 puede que solo en las expresiones sea como johnny.jpeg', texto: 'Puede que solo en las expresiones sea como Johnny' },
+    { src: '22dia27 Terminando de ver nuestra primera pelicula .jpeg', texto: 'Terminando de ver nuestra primera película' }
+];
+
+const galeria28 = [
+    { src: '23dia28, simplementeteamo.jpeg', texto: 'Simplemente te amo' },
+    { src: '23dia28 me encanta ver las notificaciones que me llegan, si se trata de ti salto de alegria .jpeg', texto: 'Me encanta ver las notificaciones que me llegan, si se trata de ti salto de alegría' },
+    { src: '23dia28 Algo que se quedo grabado en mi memoria .jpeg', texto: 'Algo que se quedó grabado en mi memoria' }
+];
+
+const galeria29 = [
+    { src: '24dia29 dormir acompañado de ti es la mejor sesacion del mundo .jpeg', texto: 'Dormir acompañado de ti es la mejor sensación del mundo' },
+    { src: '24dia29, 9 horas de llamada... quisiera un 24 hrs....jpeg', texto: '9 horas de llamada... quisiera un 24 hrs...' },
+    { src: '24dia29  tienes la personalidad de mavis miamor.jpeg', texto: 'Tienes la personalidad de Mavis, miamor' },
+    { src: '24dia29 yo y tu familia alguin dia.jpeg', texto: 'Yo y tu familia, algún día' },
+    { src: '24dia29, mis ojos te ven de esa forma, asi como johnyy ve a mavis....jpeg', texto: 'Mis ojos te ven de esa forma, así como Johnny ve a Mavis...' },
+    { src: '24dia29 JAISJDIASJDISA nosotros.jpeg', texto: 'Nosotros' },
+    { src: '24dia29, tantas cosas que estan realcionadas a ti....jpeg', texto: 'Tantas cosas que están relacionadas a ti...' },
+    { src: '24dia29 conocer a mi niña linda, es lo que mas me gusta.jpeg', texto: 'Conocer a mi niña linda es lo que más me gusta' },
+    { src: '24dia29 te amo tanto miamor.jpeg', texto: 'Te amo tanto, miamor' },
+    { src: '24dia29 CUMPLEAÑOS SI QUE SI .jpeg', texto: '¡CUMPLEAÑOS SÍ QUE SÍ!' }
+];
+
+const galeria30 = [
+    { src: 'dia30 Eres mi click.jpeg', texto: 'Eres mi click 💜' }
+];
+
+// ============================================================
+//   LÓGICA DEL MODAL GRANDE
+// ============================================================
+let galeriaActual = [];
+let indexActual = 0;
+
+function abrirGaleria(fotos, index = 0) {
+    galeriaActual = fotos;
+    indexActual = index;
+    mostrarFoto();
+    document.getElementById('modalGaleria').classList.add('activo');
+    document.body.style.overflow = 'hidden';
+}
+
+function mostrarFoto() {
+    const foto = galeriaActual[indexActual];
+    const img = document.getElementById('modalImagen');
+    const error = document.getElementById('errorImagen');
+    const texto = document.getElementById('modalTextoFoto');
+    const contador = document.getElementById('modalContador');
+    const thumbsEl = document.getElementById('modalThumbs');
+
+    img.style.display = 'block';
+    error.style.display = 'none';
+    img.src = foto.src;
+    texto.textContent = foto.texto;
+    contador.textContent = `Foto ${indexActual + 1} de ${galeriaActual.length}`;
+
+    document.getElementById('btnAnterior').disabled = indexActual === 0;
+    document.getElementById('btnSiguiente').disabled = indexActual === galeriaActual.length - 1;
+
+    thumbsEl.innerHTML = '';
+    if (galeriaActual.length > 1) {
+        galeriaActual.forEach((f, i) => {
+            const t = document.createElement('img');
+            t.src = f.src;
+            t.className = 'modal-thumb-mini' + (i === indexActual ? ' activa' : '');
+            t.onclick = () => { indexActual = i; mostrarFoto(); };
+            thumbsEl.appendChild(t);
+        });
+    }
+}
+
+function cambiarFoto(dir) {
+    const nuevo = indexActual + dir;
+    if (nuevo >= 0 && nuevo < galeriaActual.length) {
+        indexActual = nuevo;
+        mostrarFoto();
+    }
+}
+
+function cerrarGaleria() {
+    document.getElementById('modalGaleria').classList.remove('activo');
+    document.body.style.overflow = '';
+}
+
+function cerrarSiOverlay(event) {
+    if (event.target === document.getElementById('modalGaleria')) cerrarGaleria();
+}
+
+// ============================================================
+//   LÓGICA DEL MODAL SIMPLE
+// ============================================================
+function abrirFotoUnica(src, texto) {
+    const img = document.getElementById('imagenUnica');
+    const error = document.getElementById('errorImagenUnica');
+    const textoEl = document.getElementById('textoFotoUnica');
+
+    img.style.display = 'block';
+    error.style.display = 'none';
+    img.src = src;
+    textoEl.textContent = texto;
+
+    document.getElementById('modalFotoUnica').classList.add('activo');
+    document.body.style.overflow = 'hidden';
+}
+
+function cerrarFotoUnica() {
+    document.getElementById('modalFotoUnica').classList.remove('activo');
+    document.body.style.overflow = '';
+}
+
+function cerrarSiOverlaySimple(event) {
+    if (event.target === document.getElementById('modalFotoUnica')) cerrarFotoUnica();
+}
+
+// ============================================================
+//   ATAJOS DE TECLADO
+// ============================================================
+document.addEventListener('keydown', function(e) {
+    const galeriaAbierta = document.getElementById('modalGaleria').classList.contains('activo');
+    const fotoUnicaAbierta = document.getElementById('modalFotoUnica').classList.contains('activo');
+
+    if (galeriaAbierta) {
+        if (e.key === 'Escape') cerrarGaleria();
+        if (e.key === 'ArrowRight') cambiarFoto(1);
+        if (e.key === 'ArrowLeft') cambiarFoto(-1);
+    }
+
+    if (fotoUnicaAbierta) {
+        if (e.key === 'Escape') cerrarFotoUnica();
+    }
+});
+</script>
+
+</body>
+</html>
